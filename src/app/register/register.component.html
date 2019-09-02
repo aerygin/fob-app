@@ -1,0 +1,31 @@
+<div class="form-error" *ngIf="passwordMismatch">Passwords are not the same!</div>
+<div class="form-error" *ngIf="userAlreadyExists">User with {{email}} email already exists !</div>
+<div class="form-error" *ngIf="signUpForm.controls['name'].invalid &&
+                (signUpForm.controls['name'].dirty || signUpForm.controls['name'].touched)">
+  Name is not correct (from 3 to 25 characters)!
+</div>
+<div class="form-error" *ngIf="signUpForm.controls['email'].invalid &&
+                (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)">
+  Email is not correct!
+</div>
+<div class="form-error" *ngIf="signUpForm.controls['password'].invalid &&
+                (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)">
+  Password is not correct (from 3 to 25 characters)!
+</div>
+<div class="form-error" *ngIf="signUpForm.controls['repeatPassword'].invalid &&
+                (signUpForm.controls['repeatPassword'].dirty || signUpForm.controls['repeatPassword'].touched)">
+  Repeated password is not correct (from 3 to 25 characters)!
+</div>
+
+<form action [formGroup]="signUpForm">
+  <input type="text" placeholder="Enter name" formControlName="name">
+  <input type="text" placeholder="Enter email" formControlName="email">
+  <input type="password" placeholder="Enter email" formControlName="password">
+  <input type="password" placeholder="Repeat password" formControlName="repeatPassword">
+  <button
+    type="button"
+    (click)="signUp()">
+    Sign up
+  </button>
+
+</form>
