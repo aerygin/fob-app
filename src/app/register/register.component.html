@@ -1,5 +1,5 @@
 <div class="main-wrapper">
-  <div class="form-wrapper">
+  <div class="item-wrapper">
     <h2>Sign up</h2>
     <div class="errors-div">
       <div class="form-error" *ngIf="passwordMismatch">
@@ -41,14 +41,14 @@
       </div>
       <div class="buttons-wrapper">
       <button
-        type="button"
+        type="submit"
         class="btn btn-success"
         (click)="signUp()">
         Sign up
       </button>
       <button
         type="button"
-        class="btn btn-primary"
+        class="btn btn-primary back"
         (click)="back()">
         Back
       </button>

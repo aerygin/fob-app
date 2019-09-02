@@ -1,4 +1,10 @@
-<h2>hello,  {{user.name}}</h2>
-<p> here is the secret information of {{user.name}}</p>
-
-<button (click)="logout()">Logout</button>
+<div class="main-wrapper">
+  <div  style="text-align: center" class="item-wrapper">
+    <h2 *ngIf="user">hello,  {{user.name}} !</h2>
+    <p *ngIf="user"> here is the secret information of {{user.name}} !</p>
+    <button style="width: 100px" class="btn btn-primary"
+            (click)="logout()">
+      Logout
+    </button>
+  </div>
+</div>

@@ -28,10 +28,28 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
     this.userService.logoutAllUsers();
     this.signUpForm = this.fb.group({
-      name: ['', [Validators.required, Validators.max(25), Validators.min(3)]],
+      name: ['',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(25)
+        ]
+      ],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.max(25), Validators.min(3)]],
-      repeatPassword: ['', [Validators.required, Validators.max(25), Validators.min(3)]]
+      password: ['',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(25)
+        ]
+      ],
+      repeatPassword: ['',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(25)
+        ]
+      ]
     });
   }
 

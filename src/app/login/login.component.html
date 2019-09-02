@@ -1,21 +1,46 @@
-<div class="form-error" *ngIf="userDoesntExist">User doesn't exist!</div>
-<div class="form-error" *ngIf="!passwordsEqual">Password is not correct!</div>
-<div class="form-error" *ngIf="loginForm.controls['email'].invalid &&
+<div class="main-wrapper">
+  <div class="item-wrapper">
+    <h2>Log in</h2>
+    <div class="errors-div">
+      <div class="form-error" *ngIf="userDoesntExist">User doesn't exist!</div>
+      <div class="form-error" *ngIf="!passwordsEqual">Password is not correct!</div>
+      <div class="form-error" *ngIf="loginForm.controls['email'].invalid &&
                 (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
- Please enter email!
-</div>
-<div class="form-error" *ngIf="loginForm.controls['password'].invalid &&
+        Please enter email!
+      </div>
+      <div class="form-error" *ngIf="loginForm.controls['password'].invalid &&
                 (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
-  Please enter password!
-</div>
+        Please enter password!
+      </div>
+    </div>
 
-<form action [formGroup]="loginForm">
-  <input type="text" placeholder="Enter email" formControlName="email">
-  <input type="password" placeholder="Enter email" formControlName="password">
-  <button class="btn btn-success"
+    <form [formGroup]="loginForm">
+      <div class="form-group">
+        <input type="text"
+               class="form-control"
+               placeholder="Enter email"
+               formControlName="email">
+      </div>
+      <div class="form-group">
+        <input type="password"
+               class="form-control"
+               placeholder="Enter password"
+               formControlName="password">
+      </div>
+      <div class="buttons-wrapper">
+        <button class="btn btn-success"
+                type="submit"
+                (click)="login()">
+          Log in
+        </button>
+        <button
           type="button"
-          (click)="login()">
-    Log in
-  </button>
+          class="btn btn-primary back"
+          (click)="back()">
+          Back
+        </button>
+      </div>
 
-</form>
+    </form>
+  </div>
+</div>

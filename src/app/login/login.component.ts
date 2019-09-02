@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserDto} from '../domain/user.dto';
 import {UserService} from '../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(private fb: FormBuilder,
+              private router: Router,
               private userService: UserService) {
 
   }
@@ -32,9 +34,15 @@ export class LoginComponent implements OnInit {
 
 
   login() {
+    for (const inner in this.loginForm.controls) {
+      this.loginForm.get(inner).markAsDirty();
+      this.loginForm.get(inner).markAsTouched();
+    }
+    if (this.loginForm.invalid) {
+      return;
+    }
     this.email = this.loginForm.controls[`email`].value;
     this.password = this.loginForm.controls[`password`].value;
-
     this.user = this.userService.findUserByEmail(this.email);
     if (this.user === null || this.userService.checkIfUserExists(this.email)) {
       this.userDoesntExist = true;
@@ -52,7 +60,11 @@ export class LoginComponent implements OnInit {
 
 
   checkPasswords(password: string, user: UserDto): boolean {
-      return password === user.password;
+    return password === user.password;
+  }
+
+  back() {
+    this.router.navigate(['home']);
   }
 }
 
