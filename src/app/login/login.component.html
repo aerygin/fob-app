@@ -1,0 +1,21 @@
+<div class="form-error" *ngIf="userDoesntExist">User doesn't exist!</div>
+<div class="form-error" *ngIf="!passwordsEqual">Password is not correct!</div>
+<div class="form-error" *ngIf="loginForm.controls['email'].invalid &&
+                (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+ Please enter email!
+</div>
+<div class="form-error" *ngIf="loginForm.controls['password'].invalid &&
+                (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+  Please enter password!
+</div>
+
+<form action [formGroup]="loginForm">
+  <input type="text" placeholder="Enter email" formControlName="email">
+  <input type="password" placeholder="Enter email" formControlName="password">
+  <button class="btn btn-success"
+          type="button"
+          (click)="login()">
+    Log in
+  </button>
+
+</form>
