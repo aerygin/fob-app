@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
     });
   }
 
-
   login() {
     for (const inner in this.loginForm.controls) {
       this.loginForm.get(inner).markAsDirty();
@@ -57,7 +56,6 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(this.email);
   }
-
 
   checkPasswords(password: string, user: UserDto): boolean {
     return password === user.password;

@@ -13,7 +13,6 @@ export class UserService {
               private router: Router) {
   }
 
-
   findUserByEmail(email: string): UserDto {
     const users = this.getAllUsers();
     if (users === null) {
@@ -44,7 +43,6 @@ export class UserService {
     this.localStorageService.store('users', users);
     this.router.navigate(['home']);
   }
-
 
   login(email: string) {
     const users = this.getAllUsers();
