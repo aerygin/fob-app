@@ -1,31 +1,58 @@
-<div class="form-error" *ngIf="passwordMismatch">Passwords are not the same!</div>
-<div class="form-error" *ngIf="userAlreadyExists">User with {{email}} email already exists !</div>
-<div class="form-error" *ngIf="signUpForm.controls['name'].invalid &&
+<div class="main-wrapper">
+  <div class="form-wrapper">
+    <h2>Sign up</h2>
+    <div class="errors-div">
+      <div class="form-error" *ngIf="passwordMismatch">
+        Passwords are not the same!
+      </div>
+      <div class="form-error" *ngIf="userAlreadyExists">
+        User with {{email}} email already exists !
+      </div>
+      <div class="form-error" *ngIf="signUpForm.controls['name'].invalid &&
                 (signUpForm.controls['name'].dirty || signUpForm.controls['name'].touched)">
-  Name is not correct (from 3 to 25 characters)!
-</div>
-<div class="form-error" *ngIf="signUpForm.controls['email'].invalid &&
+        Name is not correct (from 3 to 25 characters)!
+      </div>
+      <div class="form-error" *ngIf="signUpForm.controls['email'].invalid &&
                 (signUpForm.controls['email'].dirty || signUpForm.controls['email'].touched)">
-  Email is not correct!
-</div>
-<div class="form-error" *ngIf="signUpForm.controls['password'].invalid &&
+        Email is not correct!
+      </div>
+      <div class="form-error" *ngIf="signUpForm.controls['password'].invalid &&
                 (signUpForm.controls['password'].dirty || signUpForm.controls['password'].touched)">
-  Password is not correct (from 3 to 25 characters)!
-</div>
-<div class="form-error" *ngIf="signUpForm.controls['repeatPassword'].invalid &&
+        Password is not correct (from 3 to 25 characters)!
+      </div>
+      <div class="form-error" *ngIf="signUpForm.controls['repeatPassword'].invalid &&
                 (signUpForm.controls['repeatPassword'].dirty || signUpForm.controls['repeatPassword'].touched)">
-  Repeated password is not correct (from 3 to 25 characters)!
+        Repeated password is not correct (from 3 to 25 characters)!
+      </div>
+    </div>
+
+    <form [formGroup]="signUpForm">
+      <div class="form-group">
+        <input type="text" placeholder="Enter name" formControlName="name" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Enter email" formControlName="email" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Enter passord" formControlName="password" class="form-control">
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Repeat password" formControlName="repeatPassword" class="form-control">
+      </div>
+      <div class="buttons-wrapper">
+      <button
+        type="button"
+        class="btn btn-success"
+        (click)="signUp()">
+        Sign up
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="back()">
+        Back
+      </button>
+      </div>
+    </form>
+  </div>
 </div>
-
-<form action [formGroup]="signUpForm">
-  <input type="text" placeholder="Enter name" formControlName="name">
-  <input type="text" placeholder="Enter email" formControlName="email">
-  <input type="password" placeholder="Enter email" formControlName="password">
-  <input type="password" placeholder="Repeat password" formControlName="repeatPassword">
-  <button
-    type="button"
-    (click)="signUp()">
-    Sign up
-  </button>
-
-</form>

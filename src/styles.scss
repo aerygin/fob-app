@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+body, html {
+  height: 100%;
+}
+
+.form-wrapper {
+  width: 50%;
+  margin-top: 150px;
+  @media (max-width: 599px) {
+    width: 90%;
+  }
+}
+
+.errors-div {
+  margin-bottom: 20px;
+}
+
+.main-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons-wrapper {
+  display: flex;
+}
+
+.btn {
+  width: 100%;
+  margin: 0 5px;
+}

@@ -82,4 +82,8 @@ export class RegisterComponent implements OnInit {
     this.router.navigate(['profile'], {queryParams: {email: this.email}});
   }
 
+  back() {
+    this.router.navigate(['home']);
+  }
+
 }
